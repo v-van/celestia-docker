@@ -28,7 +28,7 @@ services:
       - ./app/helpers.sh:/opt/helpers.sh
       - celestia-app:/root/.celestia-app
   bridge:
-    image: ghcr.io/celestiaorg/celestia-node:0.6.0
+    image: ghcr.io/celestiaorg/celestia-node:0.6.3
     env_file:
       - .env
     environment:
@@ -44,7 +44,7 @@ services:
     volumes:
       - celestia-bridge-node:/root/.celestia-bridge-mocha
   light:
-    image: ghcr.io/celestiaorg/celestia-node:0.6.1
+    image: ghcr.io/celestiaorg/celestia-node:0.6.3
     env_file:
       - .env
     environment:
