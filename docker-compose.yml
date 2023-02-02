@@ -26,7 +26,7 @@ services:
     volumes:
       - ./app/custom-entrypoint.sh:/opt/custom-entrypoint.sh
       - ./app/helpers.sh:/opt/helpers.sh
-      - celestia-app:/root/.celestia-app
+      - ./celestia-app:/root/.celestia-app
   bridge:
     image: ghcr.io/celestiaorg/celestia-node:0.6.3
     env_file:
@@ -42,7 +42,7 @@ services:
     networks:
       default:
     volumes:
-      - celestia-bridge-node:/root/.celestia-bridge-mocha
+      - ./celestia-bridge-node:/root/.celestia-bridge-mocha
   light:
     image: ghcr.io/celestiaorg/celestia-node:0.6.3
     env_file:
@@ -58,7 +58,7 @@ services:
     networks:
       default:
     volumes:
-      - celestia-light-node:/root/.celestia-light-mocha
+      - ./celestia-light-node:/root/.celestia-light-mocha
 volumes:
   celestia-app:
   celestia-bridge-node:

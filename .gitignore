@@ -1,4 +1,6 @@
 /.idea/
 /.env
 /temp/
-/.celestia-app
+/celestia-app/
+/celestia-light-node/
+.DS_Store
