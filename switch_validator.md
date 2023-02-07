@@ -21,7 +21,7 @@
 1. 执行 `docker exec -it celestia-docker-validator-1-1  bash` 进入某个 container
 2. celestia-appd tx --help, 会发现很多提供交易的 module
 ```
-    bank                类型 substrate balances 模块，控制 utia 代币
+    bank                类似 substrate balances 模块，控制 utia 代币
     broadcast           Broadcast transactions generated offline
     crisis              Crisis transactions subcommands
     decode              Decode a binary encoded transaction string
