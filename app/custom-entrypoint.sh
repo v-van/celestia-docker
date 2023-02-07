@@ -87,17 +87,17 @@ _init() {
     *) echo "Please answer yes or no." ;;
     esac
   done
-  while true; do
-    read -p "Do you want to download the latest snapshot? " yn
-    case $yn in
-    [Yy]*)
-      _download_snapshot
-      break
-      ;;
-    [Nn]*) exit ;;
-    *) echo "Please answer yes or no." ;;
-    esac
-  done
+  # while true; do
+  #   read -p "Do you want to download the latest snapshot? " yn
+  #   case $yn in
+  #   [Yy]*)
+  #     _download_snapshot
+  #     break
+  #     ;;
+  #   [Nn]*) exit ;;
+  #   *) echo "Please answer yes or no." ;;
+  #   esac
+  # done
 
 }
 if [ "$1" = 'debug' ]; then
