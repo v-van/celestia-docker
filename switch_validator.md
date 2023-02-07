@@ -16,7 +16,7 @@
 ```
   5. 使用 condtab 命令 定时执行 switch_validator.sh, 参考 https://crontab.guru/every-5-minutes
 
-  6. 应该是出不了块的，valiators set 根据质押量选取，所以目前只能选到前面几十个。
+  6. 应该是出不了块的，valiators set 根据质押量选取，目前Celeatia mocha 只能选前面100个作为 validators。
 
 # 如何执行交易/查询状态
 1. 执行 `docker exec -it celestia-docker-validator-1-1  bash` 进入某个 container
