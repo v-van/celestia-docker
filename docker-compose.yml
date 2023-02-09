@@ -1,11 +1,11 @@
 version: "3.9"
 services:
-  validator:
+  validator-1:
     build:
       dockerfile: Dockerfile
       context: app/.
     env_file:
-      - .env
+      - .env_1
     restart: unless-stopped
     expose:
       - "9090"
@@ -26,11 +26,71 @@ services:
     volumes:
       - ./app/custom-entrypoint.sh:/opt/custom-entrypoint.sh
       - ./app/helpers.sh:/opt/helpers.sh
-      - ./celestia-app:/root/.celestia-app
+      - ./celestia-app/config_1:/root/.celestia-app/config
+      - ./celestia-app/data:/root/.celestia-app/data
+      - ./celestia-app/keyring-test_1:/root/.celestia-app/keyring-test
+  validator-2:
+    build:
+      dockerfile: Dockerfile
+      context: app/.
+    env_file:
+      - .env_2
+    restart: unless-stopped
+    expose:
+      - "9090"
+      - "1317"
+      - "26656"
+      - "26657"
+    ports:
+      - "9091:9090"
+      - "1318:1317"
+      - "26666:26656"
+      - "26667:26657"
+    logging:
+      options:
+        max-size: "12m"
+        max-file: "5"
+    networks:
+      default:
+    volumes:
+      - ./app/custom-entrypoint.sh:/opt/custom-entrypoint.sh
+      - ./app/helpers.sh:/opt/helpers.sh
+      - ./celestia-app/config_2:/root/.celestia-app/config
+      - ./celestia-app/data:/root/.celestia-app/data
+      - ./celestia-app/keyring-test_2:/root/.celestia-app/keyring-test
+  validator-3:
+    build:
+      dockerfile: Dockerfile
+      context: app/.
+    env_file:
+      - .env_3
+    restart: unless-stopped
+    expose:
+      - "9090"
+      - "1317"
+      - "26656"
+      - "26657"
+    ports:
+      - "9091:9090"
+      - "1318:1317"
+      - "26666:26656"
+      - "26667:26657"
+    logging:
+      options:
+        max-size: "12m"
+        max-file: "5"
+    networks:
+      default:
+    volumes:
+      - ./app/custom-entrypoint.sh:/opt/custom-entrypoint.sh
+      - ./app/helpers.sh:/opt/helpers.sh
+      - ./celestia-app/config_3:/root/.celestia-app/config
+      - ./celestia-app/data:/root/.celestia-app/data
+      - ./celestia-app/keyring-test_3:/root/.celestia-app/keyring-test        
   bridge:
     image: ghcr.io/celestiaorg/celestia-node:0.6.3
     env_file:
-      - .env
+      - .env_1
     environment:
       - NODE_TYPE=bridge
     restart: unless-stopped
@@ -46,7 +106,7 @@ services:
   light:
     image: ghcr.io/celestiaorg/celestia-node:0.6.3
     env_file:
-      - .env
+      - .env_1
     environment:
       - NODE_TYPE=light
     restart: unless-stopped
